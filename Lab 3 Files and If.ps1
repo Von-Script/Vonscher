@@ -26,9 +26,10 @@ if ($choice -eq 1) {
     $Name = Read-Host "Enter Full Name"
     $Phone = Read-Host "Enter Phone Number"
     $Email = Read-Host "Enter Email address"
+    $files = Read-Host "What files you want"
     $blanks = read-host
-    Add-Content C:\Users\schvonm\Desktop\testfile.txt $Name, n$Phone, n$Email
-    Add-Content C:\Users\schvonm\Desktop\testfile.txt $blanks
+    Add-Content C:\Users\schvonm\Desktop\$files $Name, n$Phone, n$Email
+    Add-Content C:\Users\schvonm\Desktop\$files $blanks
 }
 elseif ($choice -eq 2) {
     Write-Output "Display all files last Weitten to after a given date"
@@ -38,8 +39,8 @@ elseif ($choice -eq 2) {
 elseif ($choice -eq 3) {
     Write-Output "Read s specified text file"
     $Files = Read-host "Enter a Text File"
-        If(Test-Path -path C:\Users\schvonm\Desktop\$Files -IsValid) {Get-Content -Path C:\Users\schvonm\Desktop\$Files}
-        elseif (Write-Output "Files doesn't Exist"){
+        If(Test-Path -path C:\Users\schvonm\$Files) {Get-Content -Path C:\Users\schvonm\$Files}
+        else {Write-Output "Files doesn't Exist"
             }
 }
 else {
